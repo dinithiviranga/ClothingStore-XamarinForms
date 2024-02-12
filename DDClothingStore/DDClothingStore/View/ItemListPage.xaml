@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModel="clr-namespace:DDClothingStore.ViewModel;assembly=DDClothingStore"
+             x:Class="DDClothingStore.View.ItemListPage"
+             x:Name="ItemsPage">
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="White">
+            <StackLayout Margin="0,0,0,0">
+                <!--  Navigation Bar -->
+                <StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal" BackgroundColor="Black">
+                    <Frame Padding="0" BackgroundColor="Black" HasShadow="False" HeightRequest="45" WidthRequest="40">
+                        <Label Margin="0,10" FontFamily="MaterialFontFamily" FontSize="28" HorizontalOptions="StartAndExpand" Text="&#xf141;" TextColor="White" />
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnBackButtonClicked" />
+                        </Frame.GestureRecognizers>
+                    </Frame>
+                    <Label x:Name="CategoryTitle" Padding = "-40,0,0,10" FontAttributes="Bold" FontSize="20" HorizontalOptions="CenterAndExpand" Text="" TextColor="White" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+                </StackLayout>
+                <ScrollView VerticalScrollBarVisibility="Never" Margin="0,0,0,0">
+                    <StackLayout>
+                            <CollectionView Grid.Row="3" x:Name="ItemsCollectionView">
+
+                                <CollectionView.ItemsLayout>
+                                    <GridItemsLayout Orientation="Vertical" Span="2" 
+                                                     HorizontalItemSpacing="10"
+                                                     VerticalItemSpacing="10"/>
+                                </CollectionView.ItemsLayout>
+
+                                <CollectionView.ItemTemplate>
+                                    <DataTemplate>
+                                        <Grid
+                                            Margin="5"
+                                            Padding="0"
+                                            HeightRequest="350">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="3*" />
+                                                <RowDefinition Height="*" />
+                                            </Grid.RowDefinitions>
+
+                                            <StackLayout Margin="0" HorizontalOptions="CenterAndExpand">
+                                                <StackLayout>
+                                                    <Frame
+                                                        CornerRadius="5"
+                                                        HasShadow="False"
+                                                        HorizontalOptions="Center"
+                                                        IsClippedToBounds="True">
+                                                        <Image
+                                                            Aspect="AspectFit"
+                                                            HeightRequest="240"
+                                                            Source="{Binding ItemImage}"
+                                                            WidthRequest="165" />
+                                                    </Frame>
+                                                </StackLayout>
+
+                                                <StackLayout Margin="20,-10,0,0">
+                                                    <Label
+                                                        FontSize="20"
+                                                        HorizontalOptions="Start"
+                                                        Text="{Binding ItemPrice}"
+                                                        TextColor="Black"
+                                                        VerticalOptions="Start">
+                                                    </Label>
+                                                    <Label
+                                                        FontSize="16"
+                                                        HorizontalOptions="Start"
+                                                        Text="{Binding ItemName}"
+                                                        TextColor="Black"
+                                                        VerticalOptions="Start">
+                                                    </Label>
+                                                </StackLayout>
+                                            </StackLayout>
+                                            <Grid.GestureRecognizers>
+                                                <TapGestureRecognizer Tapped="OnItemClick" />
+                                            </Grid.GestureRecognizers>
+                                        </Grid>
+                                    </DataTemplate>
+                                </CollectionView.ItemTemplate>
+                            </CollectionView>
+                        </StackLayout>
+                </ScrollView>
+                
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

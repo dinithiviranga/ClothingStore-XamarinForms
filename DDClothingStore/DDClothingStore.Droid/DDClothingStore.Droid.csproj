@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+        <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+        <ProjectGuid>{277F0E43-05F1-4E38-BE69-0B6C8ABA5AD0}</ProjectGuid>
+        <ProjectTypeGuids>{EFBA0AD7-5A72-4C68-AF49-83D382785DCF};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+        <OutputType>Library</OutputType>
+        <RootNamespace>DDClothingStore.Droid</RootNamespace>
+        <AssemblyName>DDClothingStore.Droid</AssemblyName>
+        <AndroidApplication>True</AndroidApplication>
+        <AndroidResgenFile>Resources\Resource.designer.cs</AndroidResgenFile>
+        <AndroidResgenClass>Resource</AndroidResgenClass>
+        <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
+        <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
+        <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
+        <AndroidUseLatestPlatformSdk>false</AndroidUseLatestPlatformSdk>
+        <TargetFrameworkVersion>v12.0</TargetFrameworkVersion>
+        <AndroidHttpClientHandlerType>Xamarin.Android.Net.AndroidClientHandler</AndroidHttpClientHandlerType>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+        <DebugSymbols>true</DebugSymbols>
+        <DebugType>portable</DebugType>
+        <Optimize>false</Optimize>
+        <OutputPath>bin\Debug</OutputPath>
+        <DefineConstants>DEBUG;</DefineConstants>
+        <ErrorReport>prompt</ErrorReport>
+        <WarningLevel>4</WarningLevel>
+        <AndroidLinkMode>None</AndroidLinkMode>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+        <DebugSymbols>true</DebugSymbols>
+        <DebugType>pdbonly</DebugType>
+        <Optimize>true</Optimize>
+        <OutputPath>bin\Release</OutputPath>
+        <ErrorReport>prompt</ErrorReport>
+        <WarningLevel>4</WarningLevel>
+        <AndroidManagedSymbols>true</AndroidManagedSymbols>
+        <AndroidUseSharedRuntime>false</AndroidUseSharedRuntime>
+    </PropertyGroup>
+    <ItemGroup>
+        <Reference Include="Mono.Android"/>
+        <Reference Include="System"/>
+        <Reference Include="System.Core"/>
+        <Reference Include="System.Xml.Linq"/>
+        <Reference Include="System.Xml"/>
+    </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="Xamarin.Forms" Version="5.0.0.2012"/>
+    </ItemGroup>
+    <ItemGroup>
+        <Compile Include="CustomEntryRenderer.cs" />
+        <Compile Include="MainActivity.cs"/>
+        <Compile Include="Resources\Resource.Designer.cs"/>
+        <Compile Include="Properties\AssemblyInfo.cs"/>
+    </ItemGroup>
+    <ItemGroup>
+        <None Include="Resources\AboutResources.txt"/>
+        <None Include="Assets\AboutAssets.txt"/>
+        <None Include="Properties\AndroidManifest.xml"/>
+    </ItemGroup>
+    <ItemGroup>
+        <AndroidResource Include="Resources\drawable\.DS_Store" />
+        <AndroidResource Include="Resources\drawable\baby.png" />
+        <AndroidResource Include="Resources\drawable\baby1.png" />
+        <AndroidResource Include="Resources\drawable\baby2.png" />
+        <AndroidResource Include="Resources\drawable\baby3.png" />
+        <AndroidResource Include="Resources\drawable\baby4.png" />
+        <AndroidResource Include="Resources\drawable\baby_clothing.jpeg" />
+        <AndroidResource Include="Resources\drawable\kids.png" />
+        <AndroidResource Include="Resources\drawable\kids1.png" />
+        <AndroidResource Include="Resources\drawable\kids2.png" />
+        <AndroidResource Include="Resources\drawable\kids3.png" />
+        <AndroidResource Include="Resources\drawable\kids4.png" />
+        <AndroidResource Include="Resources\drawable\kids_dress.png" />
+        <AndroidResource Include="Resources\drawable\men.png" />
+        <AndroidResource Include="Resources\drawable\mens1.png" />
+        <AndroidResource Include="Resources\drawable\mens2.png" />
+        <AndroidResource Include="Resources\drawable\mens3.png" />
+        <AndroidResource Include="Resources\drawable\mens4.png" />
+        <AndroidResource Include="Resources\drawable\overlay.png" />
+        <AndroidResource Include="Resources\drawable\overlayCol.png" />
+        <AndroidResource Include="Resources\drawable\search.png" />
+        <AndroidResource Include="Resources\drawable\splash_screen.xml" />
+        <AndroidResource Include="Resources\drawable\sports.png" />
+        <AndroidResource Include="Resources\drawable\sports1.png" />
+        <AndroidResource Include="Resources\drawable\sports2.png" />
+        <AndroidResource Include="Resources\drawable\sports3.png" />
+        <AndroidResource Include="Resources\drawable\store_logo.png" />
+        <AndroidResource Include="Resources\drawable\swimwear.png" />
+        <AndroidResource Include="Resources\drawable\winter.png" />
+        <AndroidResource Include="Resources\drawable\winter1.png" />
+        <AndroidResource Include="Resources\drawable\winter2.png" />
+        <AndroidResource Include="Resources\drawable\winter3.png" />
+        <AndroidResource Include="Resources\drawable\winter_fashion.png" />
+        <AndroidResource Include="Resources\drawable\woman.png" />
+        <AndroidResource Include="Resources\drawable\womens1.png" />
+        <AndroidResource Include="Resources\drawable\womens2.png" />
+        <AndroidResource Include="Resources\drawable\womens3.png" />
+        <AndroidResource Include="Resources\drawable\womens4.png" />
+        <AndroidResource Include="Resources\layout\Tabbar.axml"/>
+        <AndroidResource Include="Resources\layout\Toolbar.axml"/>
+        <AndroidResource Include="Resources\values\styles.xml"/>
+        <AndroidResource Include="Resources\values\colors.xml"/>
+    </ItemGroup>
+    <ItemGroup>
+        <ProjectReference Include="..\DDClothingStore\DDClothingStore.csproj">
+            <Project>{0517777B-0C3F-4519-9D99-5273BEFF48DD}</Project>
+            <Name>DDClothingStore</Name>
+        </ProjectReference>
+    </ItemGroup>
+    <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets"/>
+</Project>

@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:ddclothingStore="clr-namespace:DDClothingStore;assembly=DDClothingStore"
+             x:Name="HomeView"
+             xmlns:shared="clr-namespace:DDClothingStore;"
+             xmlns:viewModel="clr-namespace:DDClothingStore.ViewModel;"
+             x:Class="DDClothingStore.View.HomePage">
+    <ContentPage.BindingContext>
+        <viewModel:HomePageViewModel />
+    </ContentPage.BindingContext>
+    <ContentPage.Resources>
+        <Style TargetType="StackLayout">
+            <Setter Property="VisualStateManager.VisualStateGroups">
+                <VisualStateGroupList>
+                    <VisualStateGroup x:Name="CommonStates">
+                        <VisualState x:Name="Normal" />
+                        <VisualState x:Name="Selected">
+                            <VisualState.Setters>
+                                <Setter Property="BackgroundColor" Value="White" />
+                            </VisualState.Setters>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateGroupList>
+            </Setter>
+        </Style>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout>
+            <!-- Logo -->
+            <StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal">
+                <Frame
+                    Padding="0"
+                    BackgroundColor="Black"
+                    HasShadow="False"
+                    HeightRequest="55"
+                    HorizontalOptions="FillAndExpand">
+                    <StackLayout Orientation="Horizontal">
+                        <Image
+                            Margin="10,10,10,10"
+                            Aspect="AspectFill"
+                            Source="store_logo" />
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
+            <StackLayout Margin="0,0,0,0">
+                <ScrollView VerticalScrollBarVisibility="Never">
+                    <StackLayout>
+                        <StackLayout Margin="20,5,20,5">
+                            <!-- Category List -->
+                            <StackLayout
+                                Margin="0,20,0,20"
+                                HeightRequest="90"
+                                Orientation="Horizontal">
+                                <CollectionView ItemsSource="{Binding Categories}">
+                                    <CollectionView.ItemsLayout>
+                                        <LinearItemsLayout ItemSpacing="10" Orientation="Horizontal" />
+                                    </CollectionView.ItemsLayout>
+                                    <CollectionView.ItemTemplate>
+                                        <DataTemplate>
+                                            <StackLayout>
+                                                <Frame
+                                                    Margin="1,5,10,5"
+                                                    Padding="0"
+                                                    CornerRadius="30"
+                                                    HasShadow="True"
+                                                    HeightRequest="60"
+                                                    IsClippedToBounds="False"
+                                                    WidthRequest="60">
+                                                    <Image
+                                                        Margin="15"
+                                                        Aspect="AspectFit"
+                                                        HorizontalOptions="CenterAndExpand"
+                                                        Source="{Binding CategoryImage}"
+                                                        VerticalOptions="CenterAndExpand" />
+                                                </Frame>
+                                                <Label
+                                                    FontSize="12"
+                                                    HorizontalOptions="Center"
+                                                    Text="{Binding CategoryTitle}"
+                                                    TextColor="Black">
+                                                </Label>
+                                                <StackLayout.GestureRecognizers>
+                                                    <TapGestureRecognizer Command="{Binding Source={x:Reference HomeView}, Path=BindingContext.CategoryTapCommand}" CommandParameter="{Binding .}" />
+                                                </StackLayout.GestureRecognizers>
+                                            </StackLayout>
+                                        </DataTemplate>
+                                    </CollectionView.ItemTemplate>
+                                </CollectionView>
+                            </StackLayout>
+                            <!-- Search Bar  -->
+                            <StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal">
+                                <Frame
+                                    Padding="10,0,10,0"
+                                    BackgroundColor="#E8E8E8"
+                                    CornerRadius="40"
+                                    HasShadow="False"
+                                    HeightRequest="40"
+                                    HorizontalOptions="FillAndExpand">
+                                    <StackLayout Orientation="Horizontal">
+                                        <Image
+                                            Margin="20,10,0,10"
+                                            Aspect="AspectFit"
+                                            HeightRequest="18"
+                                            Source="search"
+                                            WidthRequest="18" />
+                                        <shared:ClothingStoreEntry HorizontalOptions="FillAndExpand" />
+                                    </StackLayout>
+                                </Frame>
+                            </StackLayout>
+                        </StackLayout>
+                        <StackLayout Spacing="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                            <Grid Margin="15,5" HorizontalOptions="FillAndExpand" VerticalOptions="Start" HeightRequest="285">
+                                <Image Source= "kids_dress" Aspect="Fill" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+                                <Image Source= "overlayCol" Aspect="Fill" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+                                <Label Text="KID'S FASHION DRESS" TextColor="White" FontSize="35" Margin="10,20" VerticalOptions="End" HorizontalTextAlignment="Center"/>
+                            </Grid>
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnItemClick">
+                                </TapGestureRecognizer>
+                            </StackLayout.GestureRecognizers>
+                        </StackLayout>
+                            <StackLayout Spacing="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                <Grid Margin="15,5" HorizontalOptions="FillAndExpand" VerticalOptions="Start" HeightRequest="285">
+                                    <Image Source= "baby_clothing" Aspect="Fill" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+                                    <Image Source= "overlayCol" Aspect="Fill" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+                                    <Label Text="20% OFF ON BABY ITEMS" TextColor="White" FontSize="35" Margin="10,20" VerticalOptions="End" HorizontalTextAlignment="Center"/>
+                                </Grid>
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnItemClick">
+                                </TapGestureRecognizer>
+                            </StackLayout.GestureRecognizers>
+                        </StackLayout>
+                        <StackLayout Spacing="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                            <Grid Margin="15,5" HorizontalOptions="FillAndExpand" VerticalOptions="Start" HeightRequest="285">
+                                <Image Source= "winter_fashion" Aspect="Fill" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+                                <Image Source= "overlayCol" Aspect="Fill" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+                                <Label Text="WINTER FASHION FLASH SALE" TextColor="White" FontSize="35" Margin="10,20" VerticalOptions="End" HorizontalTextAlignment="Center"/>
+                            </Grid>
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnItemClick">
+                                </TapGestureRecognizer>
+                            </StackLayout.GestureRecognizers>
+                        </StackLayout>
+                    </StackLayout>
+                </ScrollView>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
