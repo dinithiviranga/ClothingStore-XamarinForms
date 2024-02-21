@@ -2,6 +2,9 @@
 
 Welcome to ClothingStore! This is a cross-platform mobile app built with Xamarin.Forms that allows users to browse and shop for a wide range of clothing items conveniently from their mobile devices.
 
+## Migration to MAUI
+This project has been migrated to MAUI. You can find the new repository <a href="[testRel/myLib](https://github.com/dinithiviranga/ClothingStore-MAUI">here.</a> 
+
 ## Features
 
 - **See available clothing categories**
